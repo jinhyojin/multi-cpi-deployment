@@ -3,7 +3,7 @@
 - 본 문서는 paasta-deployment v5.5.3을 기준으로 작성
 
 ## 01.Multi-cpi Network 설정
-- [PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
+[PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
 ![guide_image1](https://github.com/jinhyojin/multi-cpi-deployment/blob/main/guide/images/openvpn.png)
 
 ## 02.Multi-cpi cpi-config 설정 

@@ -4,7 +4,7 @@
 
 ## 01.Multi-cpi Network 설정
 > [PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
-![guide_image1](./guide/images/aws-iaas-topology.png)
+![guide_image1](https://github.com/jinhyojin/multi-cpi-deployment/blob/main/guide/images/openvpn.png)
 
 ## 02.Multi-cpi cpi-config 설정 
 > bosh director 배포 (이미 배포되어 있을 경우 다음 단계로 이동)

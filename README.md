@@ -1,7 +1,6 @@
 # PaaS-TA multi-cpi 구성 가이드
 - multi-cpi 기본 구성 
   - [기본 구성](./guide/PAAS-TA_MULTI_CPI_DEFAULT_GUIDE_V1.0.md)  
-  (openvpn, cpi구성, stemcell, cloud-config  )
 - multi-cpi 운영 환경 구성  
   - [OpenVpn 배포](https://github.com/jinhyojin/openvpn-deployment/README.md)
 - multi-cpi 배포 

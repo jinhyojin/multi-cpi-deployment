@@ -1,0 +1,30 @@
+---
+# Enable registry job
+- type: replace
+  path: /instance_groups/name=bosh/jobs/name=registry?
+  value:
+    name: registry
+    release: bosh
+
+- path: /instance_groups/name=bosh/properties/registry?
+  type: replace
+  value:
+    address: ((bosh_ip))
+    db:
+      adapter: postgres
+      database: bosh
+      host: 127.0.0.1
+      password: ((postgres_password))
+      user: postgres
+    endpoint: http://registry:((registry_password))@((bosh_ip)):25777
+    host: ((bosh_ip))
+    password: ((registry_password))
+    port: 25777
+    username: registry
+
+- type: replace
+  path: /variables/name=registry_password?
+  value:
+    name: registry_password
+    type: password
+

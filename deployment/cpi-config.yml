@@ -1,0 +1,39 @@
+cpis:
+- name: aws-cpi
+  type: aws
+  properties:
+    access_key_id: ((aws_access_key_id))
+    secret_access_key: ((aws_secret_access_key))
+    default_key_name: ((aws_default_key_name))
+    default_security_groups: ((aws_default_security_groups))
+    region: ((aws_region))
+
+- name: openstack-cpi
+  type: openstack
+  properties:
+    auth_url: ((openstack_auth_url))
+    username: ((openstack_username))
+    api_key: ((openstack_password))
+    domain: ((openstack_domain))
+    project: ((openstack_project))
+    region: ((openstack_region))
+    default_key_name: ((openstack_default_key_name))
+    default_security_groups: ((openstack_default_security_groups))
+    human_readable_vm_names: true
+
+- name: vsphere-cpi
+  type: vsphere
+  properties:
+    host: ((vcenter_ip))
+    user: ((vcenter_user))
+    password: ((vcenter_password))
+    default_disk_type: thin
+    datacenters:
+    - clusters:
+      - { ((vcenter_cluster)): {}}
+      datastore_pattern: ((vcenter_ds))
+      disk_path: ((vcenter_disks))
+      name: ((vcenter_dc))
+      persistent_datastore_pattern: ((vcenter_ds))
+      template_folder: ((vcenter_templates))
+      vm_folder: ((vcenter_vms))

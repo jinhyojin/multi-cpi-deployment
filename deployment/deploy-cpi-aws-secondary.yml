@@ -1,0 +1,25 @@
+---
+- type: replace
+  path: /releases/-
+  value:
+    name: bosh-aws-cpi
+    version: 86
+    url: https://bosh.io/d/github.com/cloudfoundry/bosh-aws-cpi-release?v=86
+    sha1: f1116dc3f8e473f635e080f67a47d083809bebeb
+
+- type: replace
+  path: /instance_groups/name=bosh/jobs/-
+  value:
+    name: aws_cpi
+    release: bosh-aws-cpi
+
+- type: replace
+  path: /instance_groups/name=bosh/properties/aws?
+  value:
+    access_key_id: unused
+    default_key_name: unused
+    default_security_groups: unused
+    region: unused
+    secret_access_key: unused
+
+

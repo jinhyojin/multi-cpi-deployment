@@ -1,0 +1,29 @@
+# MULTI-CPI VARIABLE :: aws
+aws_access_key_id: "XXXXXXXXXXXXXXX"                    # AWS Access Key
+aws_secret_access_key: "XXXXXXXXXXXXX"                  # AWS Secret Key
+aws_default_key_name: "paasta-key"                      # AWS Key Name
+aws_default_security_groups: ["paasta-security"]        # AWS Security-Group
+aws_region: "ap-northeast-2"                            # AWS Region
+
+# MULTI-CPI VARIABLE :: openstack
+openstack_auth_url: "http://XX.XXX.XX.XX:XXXX/v3/"      # Openstack Keystone URL
+openstack_username: "XXXXXX"                            # Openstack User Name
+openstack_password: "XXXXXX"                            # Openstack User Password
+openstack_domain: "XXXXXX"                              # Openstack Domain Name
+openstack_project: "PaaS-TA"                            # Openstack Project
+openstack_region: "RegionOne"                           # Openstack Region
+openstack_default_key_name: "paasta-key"                # Openstack Key Name
+openstack_default_security_groups: ["paasta-security"]  # Openstack Security Group
+
+# MULTI-CPI VARIABLE :: vsphere
+vcenter_ip: "XX.XX.XXX.XX"                              # vCenter Private IP
+vcenter_user: "XXXXX"                                   # vCenter User Name
+vcenter_password: "XXXXXX"                              # vCenter User Password
+vcenter_cluster: "PaaS-TA"                              # vCenter Cluster Name
+vcenter_ds: "PaaS-TA_Storage"                           # vCenter Data Storage Name
+vcenter_disks: "PaaS-TA_Disks"                          # vCenter Disk Name
+vcenter_dc: "PaaS-TA_DC"                                # vCenter Data Center Name
+vcenter_templates: "PaaS-TA_Templates"                  # vCenter Templates Name
+vcenter_vms: "PaaS-TA_VMs"                              # vCenter VMS Name
+
+

@@ -3,7 +3,7 @@
 
 
 ## 01.Multi-cpi Network 설정
-> [PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
+[PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
 ![guide_image1](https://github.com/jinhyojin/multi-cpi-deployment/blob/main/guide/images/openvpn.png)
 
 ## 02.Multi-cpi cpi-config 설정 
@@ -29,6 +29,7 @@
 <td>CPI가 IaaS에서 리소스를 인증하고 프로비저닝할 수 있도록 각 호출에 대해 CPI에 제공할 속성 집합</td>
 </tr>
 </table>
+<br>
 
 AWS example:
 ```
@@ -42,6 +43,7 @@ cpis:
     default_security_groups: ((aws_default_security_groups))
     region: ((aws_region))
 ```
+<br>
 
 OpenStack example:
 ```
@@ -59,6 +61,7 @@ cpis:
     default_security_groups: ((openstack_default_security_groups))
     human_readable_vm_names: true
 ```
+<br>
 
 vSphere example:
 ```
@@ -80,6 +83,7 @@ cpis:
       template_folder: ((vcenter_templates))
       vm_folder: ((vcenter_vms))
 ```
+<br>
 
 Multi IaaS example:
 ```
@@ -95,8 +99,7 @@ cpis:
 ```
 
 ## 03.Multi-cpi stemcell upload
-> Stemcell은 특정 cpi에 할당되도록 업로드
-<br>이미 stemcell이 업로드 되어 있다면 재업로드 필요
+> Stemcell은 특정 cpi에 할당되도록 업로드, 이미 stemcell이 업로드 되어 있다면 재업로드 필요
 <br>AWS의 경우 lite-stemcell 사용
 ```
 bosh upload-stemcell ####.tgz --fix

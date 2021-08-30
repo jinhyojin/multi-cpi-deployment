@@ -3,7 +3,7 @@
 - 본 문서는 paasta-deployment v5.5.3을 기준으로 작성
 
 ## 01.Multi-cpi Network 설정
-> [PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
+[PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
 ![guide_image1](https://github.com/jinhyojin/multi-cpi-deployment/blob/main/guide/images/openvpn.png)
 
 ## 02.Multi-cpi cpi-config 설정 
@@ -13,6 +13,7 @@ $ PaaS-TA_HOME = /home/ubuntu/workspace/paasta-5.5.3/deployment/paasta-deploymen
 $ cd ${PaaS-TA_HOME}/bosh/
 $ ./deploy-${IaaS}.sh
 ``` 
+<br>
 
 > 동일 IaaS간의 cpi-config 파일을 생성 
 AWS example: vim cpis-aws.yml
@@ -35,6 +36,7 @@ cpis:
     default_security_groups: ((aws_default_security_groups))
     region: ((aws_region))
 ```
+<br>
 
 OpenStack example: vim cpis-openstack.yml
 ```
@@ -64,6 +66,7 @@ cpis:
     default_security_groups: ((openstack_default_security_groups))
     human_readable_vm_names: true
 ```
+<br>
 
 vSphere example: vim cpis-vsphere.yml
 ```
@@ -99,6 +102,7 @@ cpis:
       template_folder: ((vcenter_templates))
       vm_folder: ((vcenter_vms))
 ```
+<br>
 
 > cpi 설정 적용 ( ${IaaS} : aws, openstack, vsphere )
 ```
@@ -106,16 +110,16 @@ $ bosh update-cpi-config cpis-${IaaS}.yml
 ``` 
 
 ## 03.Multi-cpi stemcell 설정
-> [stemcell download](https://bosh.cloudfoundry.org/stemcells/)
+> [stemcell download](https://bosh.cloudfoundry.org/stemcells/) 
 <br>AWS의 경우 lite-stemcell 사용
 ```
 $ wget https://storage.googleapis.com/bosh-aws-light-stemcells/1.25/light-bosh-stemcell-1.25-aws-xen-hvm-ubuntu-bionic-go_agent.tgz
 $ wget https://storage.googleapis.com/bosh-core-stemcells/1.25/bosh-stemcell-1.25-openstack-kvm-ubuntu-bionic-go_agent.tgz
 $ wget https://storage.googleapis.com/bosh-core-stemcells/1.25/bosh-stemcell-1.25-vsphere-esxi-ubuntu-bionic-go_agent.tgz
 ```
+<br>
 
-> stemcell upload (각 IaaS에 맞게 업로드 )
-<br>이미 stemcell이 업로드 되어 있다면 재업로드 필요
+> stemcell upload (각 IaaS에 맞게 업로드, 이미 stemcell이 업로드 되어 있다면 재업로드 필요 )
 <br>--fix 명령어 사용 
 
 AWS example:

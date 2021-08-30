@@ -3,7 +3,7 @@
 - 본 문서는 paasta-deployment v5.5.3을 기준으로 작성
 
 ## 01.Multi-cpi Network 설정
-> [PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
+[PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
 ![guide_image1](https://github.com/jinhyojin/multi-cpi-deployment/blob/main/guide/images/openvpn.png)
 
 ## (임시) Multi-cpi download 
@@ -40,6 +40,7 @@ $ mv multi-cpi-deployment/deployment multi-cpi
 <td>기존 인프라가 vSphere 일 경우 사용</td>
 </tr>
 </table>
+<br>
 
 $ vim ${PaaS-TA_HOME}/bosh/deploy-aws.sh
 ```diff
@@ -54,6 +55,7 @@ $ vim ${PaaS-TA_HOME}/bosh/deploy-aws.sh
  	-o cce.yml \
  	-l aws-vars.yml
 ```
+<br>
 
 $ vim ${PaaS-TA_HOME}/bosh/deploy-openstack.sh
 ```diff
@@ -69,6 +71,7 @@ $ vim ${PaaS-TA_HOME}/bosh/deploy-openstack.sh
  	-o openstack/disable-readable-vm-names.yml \
  	-l openstack-vars.yml
 ```
+<br>
 
 $ vim ${PaaS-TA_HOME}/bosh/deploy-vsphere.sh
 ```diff
@@ -84,6 +87,7 @@ $ vim ${PaaS-TA_HOME}/bosh/deploy-vsphere.sh
  	-o jumpbox-user.yml  \
  	-l vsphere-vars.yml
 ```
+<br>
 
 > bosh director 배포
 ```
@@ -106,6 +110,7 @@ $ ./deploy-${IaaS}.sh
 <td>multi-cpi 설정 파일</td>
 </tr>
 </table>
+<br>
 
 > 새 인프라에 대한 정보를 입력한다. 
 $ vim ${PaaS-TA_HOME}/bosh/multi-cpi/cpi-vars.yml
@@ -138,6 +143,7 @@ vcenter_dc: "PaaS-TA_DC"                                # vCenter Data Center Na
 vcenter_templates: "PaaS-TA_Templates"                  # vCenter Templates Name
 vcenter_vms: "PaaS-TA_VMs"                              # vCenter VMS Name
 ```
+<br>
 
 > 필요없는 cpi 정보는 주석처리 한다. 
 $ vim ${PaaS-TA_HOME}/bosh/multi-cpi/cpi-config.yml
@@ -182,6 +188,7 @@ cpis:
       template_folder: ((vcenter_templates))
       vm_folder: ((vcenter_vms))
 ```
+<br>
 
 > cpi 설정 적용 
 ```
@@ -196,9 +203,9 @@ $ wget https://storage.googleapis.com/bosh-aws-light-stemcells/1.25/light-bosh-s
 $ wget https://storage.googleapis.com/bosh-core-stemcells/1.25/bosh-stemcell-1.25-openstack-kvm-ubuntu-bionic-go_agent.tgz
 $ wget https://storage.googleapis.com/bosh-core-stemcells/1.25/bosh-stemcell-1.25-vsphere-esxi-ubuntu-bionic-go_agent.tgz
 ```
+<br>
 
-> stemcell upload (각 IaaS에 맞게 업로드 )
-<br>이미 stemcell이 업로드 되어 있다면 재업로드 필요
+> stemcell upload (각 IaaS에 맞게 업로드, 이미 stemcell이 업로드 되어 있다면 재업로드 필요 )
 <br>--fix 명령어 사용 
 
 AWS-OpenStack example:
@@ -228,17 +235,20 @@ $ bosh upload-stemcell bosh-stemcell-1.25-openstack-kvm-ubuntu-bionic-go_agent.t
 <td>vsphere, aws template file</td>
 </tr>
 </table>
+<br>
 
 > aws-openstack 또는 openstack-aws 를 사용하는 경우 
 <br> 필수사항 : openstack flavor 추가 필요 (t2.small, t2.medium, t2.large, t2.xlarge)
 ```
 bosh update-cloud-config ${PaaS-TA_HOME}/bosh/multi-cpi/cloud-config-aws-openstack.yml
 ```
+<br>
 
 > openstack-vsphere 또는 vpshere-openstack 을 사용하는 경우 
 ```
 bosh update-cloud-config ${PaaS-TA_HOME}/bosh/multi-cpi/cloud-config-openstack-vsphere.yml
 ```
+<br>
 
 > vsphere-aws 또는 aws-vsphere 를 사용하는 경우 
 ```

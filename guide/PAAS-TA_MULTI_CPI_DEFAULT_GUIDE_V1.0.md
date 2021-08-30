@@ -3,7 +3,7 @@
 
 
 ## 01.Multi-cpi Network 설정
-[PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
+- [PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
 ![guide_image1](https://github.com/jinhyojin/multi-cpi-deployment/blob/main/guide/images/openvpn.png)
 
 ## 02.Multi-cpi cpi-config 설정 
@@ -14,7 +14,7 @@
 <td>설명</td>
 </tr>
 <tr>
-<td>name/td>
+<td>name</td>
 <td>문자열,필수</td>
 <td>CPI의 고유 이름</td>
 </tr>
@@ -97,6 +97,7 @@ cpis:
   properties:
     ...
 ```
+<br>
 
 ## 03.Multi-cpi stemcell upload
 > Stemcell은 특정 cpi에 할당되도록 업로드, 이미 stemcell이 업로드 되어 있다면 재업로드 필요
@@ -104,6 +105,7 @@ cpis:
 ```
 bosh upload-stemcell ####.tgz --fix
 ```
+<br>
 
 ## 04.Multi-cpi cloud-config 설정 
 > cloud-config 의 azs 에서 각 인프라의 cpi-name 을 지정

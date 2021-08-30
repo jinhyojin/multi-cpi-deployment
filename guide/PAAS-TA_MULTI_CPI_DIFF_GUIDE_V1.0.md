@@ -3,7 +3,7 @@
 - 본 문서는 paasta-deployment v5.5.3을 기준으로 작성
 
 ## 01.Multi-cpi Network 설정
-[PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
+- [PaaS-TA OpenVPN Release](https://github.com/jinhyojin/openvpn-deployment) 를 사용하여 각 인프라의 OpenVPN 서버와 클라이언트를 모두 연결 
 ![guide_image1](https://github.com/jinhyojin/multi-cpi-deployment/blob/main/guide/images/openvpn.png)
 
 ## (임시) Multi-cpi download 
@@ -14,6 +14,7 @@ $ cd ${PaaS-TA_HOME}/bosh
 $ git clone https://github.com/jinhyojin/multi-cpi-deployment.git
 $ mv multi-cpi-deployment/deployment multi-cpi
 ```
+<br>
 
 ## 02.Multi-cpi director 설정 
 > 새 인프라에 대한 cpi를 추가한다. 
@@ -94,6 +95,7 @@ $ vim ${PaaS-TA_HOME}/bosh/deploy-vsphere.sh
 $ cd ${PaaS-TA_HOME}/bosh/
 $ ./deploy-${IaaS}.sh
 ``` 
+<br>
 
 ## 03.Multi-cpi cpi-config 설정 
 <table>
@@ -194,6 +196,7 @@ cpis:
 ```
 $ bosh update-cpi-config ${PaaS-TA_HOME}/bosh/multi-cpi/cpi-config.yml
 ``` 
+<br>
 
 ## 04.Multi-cpi stemcell 설정
 > [stemcell download](https://bosh.cloudfoundry.org/stemcells/)
@@ -214,7 +217,7 @@ $ bosh upload-stemcell light-bosh-stemcell-1.25-aws-xen-hvm-ubuntu-bionic-go_age
 
 $ bosh upload-stemcell bosh-stemcell-1.25-openstack-kvm-ubuntu-bionic-go_agent.tgz --fix
 ```
-
+<br>
 
 ## 05.Multi-cpi cloud-config 설정
 <table>
@@ -254,6 +257,7 @@ bosh update-cloud-config ${PaaS-TA_HOME}/bosh/multi-cpi/cloud-config-openstack-v
 ```
 bosh update-cloud-config ${PaaS-TA_HOME}/bosh/multi-cpi/cloud-config-vsphere-aws.yml
 ```
+<br>
 
 ## 06.Multi-cpi PaaS-TA 배포
 ```
